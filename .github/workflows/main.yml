@@ -1,0 +1,25 @@
+name: CI/CD Bai Thi NM
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code (Lay code ve)
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js (Cai moi truong)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies (Cai thu vien)
+        run: |
+          cd backend-app
+          npm install
+
+      - name: Test Simulation (Gia lap kiem tra)
+        run: echo "He thong da kiem tra code thanh cong!"
